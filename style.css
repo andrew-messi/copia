@@ -1,101 +1,94 @@
-:root {
-  --bg: #06060a;
-  --accent: #ff4d8b;
-  --glass-bg: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.12);
-  --text: #e9eef8;
-  --radius: 16px;
-  --blur: 10px;
-}
-
-* { box-sizing: border-box; }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
 
 body {
   margin: 0;
-  height: 100%;
-  overflow: hidden;
-  background: radial-gradient(circle at center, #0c0c15, #030308 80%);
-  font-family: "Poppins", sans-serif;
-  color: var(--text);
+  font-family: 'Poppins', sans-serif;
+  background: radial-gradient(circle at top, #1a0033, #0d001a);
+  color: white;
+  text-align: center;
 }
 
-/* CANVAS */
-#canvas-wrap {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-}
-
-#three-canvas {
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-
-/* GLASS UI */
-.glass {
-  background: var(--glass-bg);
-  backdrop-filter: blur(var(--blur));
-  border: 1px solid var(--glass-border);
-  border-radius: var(--radius);
-}
-
-/* HEADER */
-.topbar {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  right: 20px;
+header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 10;
-  padding: 10px 20px;
-}
-.logo { height: 40px; }
-
-/* PANEL */
-.panel {
-  position: fixed;
-  right: 20px;
-  top: 90px;
-  width: 240px;
-  z-index: 10;
-  padding: 16px;
-  font-size: 0.9rem;
+  padding: 1rem 2rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid rgba(255, 0, 255, 0.2);
 }
 
-/* HERO */
-.hero {
-  padding: 40px;
-  margin-top: 140px;
-  text-align: center;
+.logo {
+  width: 120px;
 }
-.hero h1 { font-size: 2.2rem; }
-.hero p { opacity: 0.8; }
 
-/* BUTTONS */
+.nav-buttons {
+  display: flex;
+  gap: 10px;
+}
+
 .btn {
-  border: 0;
-  padding: 10px 16px;
-  border-radius: 10px;
-  color: var(--text);
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
   cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.3);
 }
-.btn.primary { background: linear-gradient(90deg, var(--accent), #ffa0c5); color: #070717; }
-.btn.ghost { border: 1px solid rgba(255, 255, 255, 0.2); background: transparent; }
 
-/* FOOTER */
-.footer {
+.btn.pink {
+  background: linear-gradient(90deg, #ff00cc, #ff66ff);
+  color: white;
+}
+
+.btn.purple {
+  background: linear-gradient(90deg, #6600ff, #cc00ff);
+  color: white;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.options {
+  margin: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  display: inline-block;
+}
+
+.hero {
+  padding: 4rem 2rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 0 0 15px #ff00ff;
+}
+
+.hero span {
+  color: #ff33ff;
+}
+
+.buttons {
+  margin-top: 1rem;
+}
+
+footer {
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+#game-canvas {
+  display: none;
   position: fixed;
-  bottom: 10px;
-  left: 20px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
   z-index: 10;
-  font-size: 0.8rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .panel { width: 200px; right: 10px; }
-  .hero h1 { font-size: 1.6rem; }
 }
